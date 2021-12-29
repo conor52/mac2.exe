@@ -726,6 +726,24 @@ client.on('message', async msg => {
     }
   }
 
+  if (msg.content === 'shut up') {
+    const newsArray = ['audio folder/mac shut up.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
   if (msg.content === 'egg') {
     const newsArray = ['audio folder/egg.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
