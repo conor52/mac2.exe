@@ -738,7 +738,7 @@ client.on('message', async msg => {
       await msg.member.voice.channel
         .join()
         .then(connection => {
-          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          const dispatcher = connection.play(newsArray[random], { volume: 1.1 }, { highWaterMark: 50 });
           dispatcher.on('finish', () => connection.disconnect());
         })
         .catch(e => {
