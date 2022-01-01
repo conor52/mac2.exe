@@ -747,6 +747,41 @@ client.on('message', async msg => {
     }
   }
 
+  if (msg.content === 'neck') {
+    const newsArray = ['audio folder1/mac neck.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 1.1 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'call to prayer') {
+    const newsArray = ['audio folder1/call to prayer.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 1.1 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
   if (msg.content === 'egg') {
     const newsArray = ['audio folder1/egg.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
