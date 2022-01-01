@@ -60,8 +60,6 @@ client.on('messageReactionAdd', async (reaction, user) => {
       reaction.message.channel.send('Good man yourself, keep downvoting Mark');
     } else {
     }
-
-    
   }
 });
 
@@ -69,7 +67,12 @@ client.on('message', async msg => {
   // all triggered by certain message conditions, and sometimes requiring a specific user to use it, such as mac turning off his intro play.
   if (msg.content === 'news') {
     // Put your message condition inside this string
-    const newsArray = ['audio folder/dublin-airport.mp3', 'audio folder/government-sponsors.mp3', 'audio folder/public-stonings.mp3', 'audio folder/rebel-stronghold.mp3']; // put your audio file(s) in here. if its just one then that will be picked always, if its multiple then its picked at random. Try to use mp3 or mp4 files.
+    const newsArray = [
+      'audio folder1/dublin-airport.mp3',
+      'audio folder1/government-sponsors.mp3',
+      'audio folder1/public-stonings.mp3',
+      'audio folder1/rebel-stronghold.mp3',
+    ]; // put your audio file(s) in here. if its just one then that will be picked always, if its multiple then its picked at random. Try to use mp3 or mp4 files.
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -108,13 +111,13 @@ client.on('message', async msg => {
 
   if (msg.content === 'menu') {
     let file;
-    const random = Math.ceil(Math.random()*100);
+    const random = Math.ceil(Math.random() * 100);
     if (random === 100) {
-      file = 'audio folder/menu3.mp3';
+      file = 'audio folder1/menu3.mp3';
     } else if (random >= 90) {
-      file = 'audio folder/menu2.mp3';
+      file = 'audio folder1/menu2.mp3';
     } else {
-      file = 'audio folder/menu1.mp3';
+      file = 'audio folder1/menu1.mp3';
     }
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -132,7 +135,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'breyers') {
-    const newsArray = ['audio folder/byriers.mp4'];
+    const newsArray = ['audio folder1/byriers.mp4'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -150,7 +153,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'asnee') {
-    const newsArray = ['audio folder/asnee.mp3'];
+    const newsArray = ['audio folder1/asnee.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -168,7 +171,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'big shaq') {
-    const newsArray = ['audio folder/bigshaq.mp3'];
+    const newsArray = ['audio folder1/bigshaq.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -186,7 +189,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'starving') {
-    const newsArray = ['audio folder/starving (1).mp3'];
+    const newsArray = ['audio folder1/starving (1).mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -205,7 +208,7 @@ client.on('message', async msg => {
   1;
 
   if (msg.content === 'legs') {
-    const newsArray = ['audio folder/legs (1).mp3'];
+    const newsArray = ['audio folder1/legs (1).mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -223,7 +226,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'borat') {
-    const newsArray = ['audio folder/borat.mp3'];
+    const newsArray = ['audio folder1/borat.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -241,7 +244,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'divorce') {
-    const newsArray = ['audio folder/divorce-short.mp3'];
+    const newsArray = ['audio folder1/divorce-short.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -259,7 +262,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'sassy') {
-    const newsArray = ['audio folder/sassy1.mp3'];
+    const newsArray = ['audio folder1/sassy1.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -277,7 +280,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'donkey') {
-    const newsArray = ['audio folder/donkey.mp3'];
+    const newsArray = ['audio folder1/donkey.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -295,7 +298,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'ey boss') {
-    const newsArray = ['audio folder/eyboss.mp3'];
+    const newsArray = ['audio folder1/eyboss.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -313,7 +316,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'pretty good') {
-    const newsArray = ['audio folder/prettygood.mp3'];
+    const newsArray = ['audio folder1/prettygood.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -331,7 +334,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'lesson') {
-    const newsArray = ['audio folder/lesson.mp3'];
+    const newsArray = ['audio folder1/lesson.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -349,7 +352,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'nice') {
-    const newsArray = ['audio folder/nice.mp3'];
+    const newsArray = ['audio folder1/nice.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -367,7 +370,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'smellz') {
-    const newsArray = ['audio folder/smellz1.mp3'];
+    const newsArray = ['audio folder1/smellz1.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -385,7 +388,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'weans') {
-    const newsArray = ['audio folder/weans.mp3'];
+    const newsArray = ['audio folder1/weans.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -403,7 +406,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'bono') {
-    const newsArray = ['audio folder/bono.mp4'];
+    const newsArray = ['audio folder1/bono.mp4'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -421,7 +424,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'steak') {
-    const newsArray = ['audio folder/steak.mp3'];
+    const newsArray = ['audio folder1/steak.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -439,7 +442,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'mr freeze') {
-    const newsArray = ['audio folder/mrfreeze.mp4'];
+    const newsArray = ['audio folder1/mrfreeze.mp4'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -457,7 +460,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'street') {
-    const newsArray = ['audio folder/street.mp3'];
+    const newsArray = ['audio folder1/street.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -475,7 +478,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'smellz long') {
-    const newsArray = ['audio folder/smellz2.mp3', 'audio folder/smellz3.mp3'];
+    const newsArray = ['audio folder1/smellz2.mp3', 'audio folder1/smellz3.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -493,7 +496,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'carlton') {
-    const newsArray = ['audio folder/carlton.mp3'];
+    const newsArray = ['audio folder1/carlton.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -511,7 +514,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'edd scream') {
-    const newsArray = ['audio folder/Edscream.mp3'];
+    const newsArray = ['audio folder1/Edscream.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -529,7 +532,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'get a knife') {
-    const newsArray = ['audio folder/getanknife.mp3'];
+    const newsArray = ['audio folder1/getanknife.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -547,7 +550,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'joey') {
-    const newsArray = ['audio folder/joey.mp3'];
+    const newsArray = ['audio folder1/joey.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -565,7 +568,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'penis') {
-    const newsArray = ['audio folder/penis.mp3'];
+    const newsArray = ['audio folder1/penis.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -583,7 +586,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'please') {
-    const newsArray = ['audio folder/please.mp3'];
+    const newsArray = ['audio folder1/please.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -601,7 +604,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'quick maths') {
-    const newsArray = ['audio folder/quickmafs.mp3'];
+    const newsArray = ['audio folder1/quickmafs.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -619,7 +622,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'sun priest') {
-    const newsArray = ['audio folder/TheSunPriest.mp3'];
+    const newsArray = ['audio folder1/TheSunPriest.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -632,12 +635,12 @@ client.on('message', async msg => {
         })
         .catch(e => {
           console.error(e);
-        })
+        });
     }
   }
 
   if (msg.content === 'viper') {
-    const newsArray = ['audio folder/theviper2.mp3', 'audio folder/theviper3.mp3'];
+    const newsArray = ['audio folder1/theviper2.mp3', 'audio folder1/theviper3.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -655,7 +658,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'viper long') {
-    const newsArray = ['audio folder/TheViper.mp3'];
+    const newsArray = ['audio folder1/TheViper.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -673,7 +676,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'cold snap') {
-    const newsArray = ['audio folder/cold snap.mp4'];
+    const newsArray = ['audio folder1/cold snap.mp4'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -691,7 +694,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'lads') {
-    const newsArray = ['LADS.mp3'];
+    const newsArray = ['audio folder11/LADS.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -709,7 +712,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'lads long') {
-    const newsArray = ['audio folder/ladsfull.mp3'];
+    const newsArray = ['audio folder1/ladsfull.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -727,7 +730,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'shut up') {
-    const newsArray = ['audio folder/mac shut up.mp3'];
+    const newsArray = ['audio folder1/mac shut up.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -745,7 +748,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'egg') {
-    const newsArray = ['audio folder/egg.mp3'];
+    const newsArray = ['audio folder1/egg.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -763,7 +766,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'heffo') {
-    const newsArray = ['audio folder/heffo.mp3'];
+    const newsArray = ['audio folder1/heffo.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -781,7 +784,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'say again?') {
-    const newsArray = ['audio folder/say-again.mp3'];
+    const newsArray = ['audio folder1/say-again.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -799,7 +802,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'catjam') {
-    const newsArray = ['audio folder/cat jam original.mp3'];
+    const newsArray = ['audio folder1/cat jam original.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -816,10 +819,8 @@ client.on('message', async msg => {
     }
   }
 
-  
-
   if (msg.content === 'potion seller') {
-    const newsArray = ['audio folder/strong-potion.mp4', 'audio folder/potions.mp4'];
+    const newsArray = ['audio folder1/strong-potion.mp4', 'audio folder1/potions.mp4'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -837,7 +838,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'dorty curry') {
-    const newsArray = ['audio folder/dortycorry1.mp3', 'audio folder/dortycorry2.mp3'];
+    const newsArray = ['audio folder1/dortycorry1.mp3', 'audio folder1/dortycorry2.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -855,7 +856,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'autism') {
-    const newsArray = ['audio folder/autism.mp4'];
+    const newsArray = ['audio folder1/autism.mp4'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -873,7 +874,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'poopy') {
-    const newsArray = ['audio folder/poopy.mp4'];
+    const newsArray = ['audio folder1/poopy.mp4'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -891,7 +892,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'miranda') {
-    const newsArray = ['audio folder/miranda.mp4'];
+    const newsArray = ['audio folder1/miranda.mp4'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
