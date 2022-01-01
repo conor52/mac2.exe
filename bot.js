@@ -738,7 +738,7 @@ client.on('message', async msg => {
       await msg.member.voice.channel
         .join()
         .then(connection => {
-          const dispatcher = connection.play(newsArray[random], { volume: 1.1 }, { highWaterMark: 50 });
+          const dispatcher = connection.play(newsArray[random], { volume: 1.8 }, { highWaterMark: 50 });
           dispatcher.on('finish', () => connection.disconnect());
         })
         .catch(e => {
@@ -748,7 +748,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'neck') {
-    const newsArray = ['audio folder1/mac neck.mp3'];
+    const newsArray = ['audio folder1/neck.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
@@ -756,7 +756,7 @@ client.on('message', async msg => {
       await msg.member.voice.channel
         .join()
         .then(connection => {
-          const dispatcher = connection.play(newsArray[random], { volume: 1.1 }, { highWaterMark: 50 });
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
           dispatcher.on('finish', () => connection.disconnect());
         })
         .catch(e => {
@@ -774,7 +774,7 @@ client.on('message', async msg => {
       await msg.member.voice.channel
         .join()
         .then(connection => {
-          const dispatcher = connection.play(newsArray[random], { volume: 1.1 }, { highWaterMark: 50 });
+          const dispatcher = connection.play(newsArray[random], { volume: 0.8 }, { highWaterMark: 50 });
           dispatcher.on('finish', () => connection.disconnect());
         })
         .catch(e => {
