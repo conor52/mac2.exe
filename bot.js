@@ -691,7 +691,7 @@ client.on('message', async msg => {
   }
 
   if (msg.content === 'lads') {
-    const newsArray = ['audio folder/LADS.mp3'];
+    const newsArray = ['LADS.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
     if (!msg.member.voice.channel) {
       msg.channel.send('Go into a channel to hear this meme.');
