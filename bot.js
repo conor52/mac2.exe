@@ -729,6 +729,24 @@ client.on('message', async msg => {
     }
   }
 
+  if (msg.content === 'halo theme') {
+    const newsArray = ['audio folder1/halo theme.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.4 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
   if (msg.content === 'shut up') {
     const newsArray = ['audio folder1/mac shut up.mp3'];
     let random = Math.floor(Math.random() * newsArray.length);
@@ -774,7 +792,7 @@ client.on('message', async msg => {
       await msg.member.voice.channel
         .join()
         .then(connection => {
-          const dispatcher = connection.play(newsArray[random], { volume: 0.5 }, { highWaterMark: 50 });
+          const dispatcher = connection.play(newsArray[random], { volume: 0.2 }, { highWaterMark: 50 });
           dispatcher.on('finish', () => connection.disconnect());
         })
         .catch(e => {
