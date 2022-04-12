@@ -79,6 +79,7 @@ const memes = new Map([
   ["porn", { fileNames: ["porn.mp3"] }],
   ["potions", { fileNames: ["potions.mp3"] }],
   ["prettygood", { fileNames: ["prettygood.mp3"] }],
+  ["pro cycling manager", { fileNames: ["pro cycling manager.mp3"] }],
   ["putin", { fileNames: ["putin.mp3"] }],
   ["quickmafs", { fileNames: ["quickmafs.mp3"] }],
   ["renekton", { fileNames: ["renekton.mp3"] }],
