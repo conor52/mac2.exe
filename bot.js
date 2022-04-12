@@ -925,7 +925,7 @@ client.on('message', async msg => {
         });
     }
   }
-
+// alex eats ass
   if (msg.content === 'poopy') {
     const newsArray = ['audio folder1/poopy.mp4'];
     let random = Math.floor(Math.random() * newsArray.length);
