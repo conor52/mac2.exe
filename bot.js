@@ -38,17 +38,14 @@ const memes = new Map([
   ["getaknife", { fileNames: ["getaknife.mp3"] }],
   [
     "news",
-    [
-      {
-        fileNames: [
-          ,
-          "government-sponsors.mp3",
-          "dublin-airport.mp3",
-          "public-stonings.mp3",
-          "rebel-stronghold.mp3",
-        ],
-      },
-    ],
+    {
+      fileNames: [
+        "government-sponsors.mp3",
+        "dublin-airport.mp3",
+        "public-stonings.mp3",
+        "rebel-stronghold.mp3",
+      ],
+    },
   ],
   ["hal", { fileNames: ["hal.mp3"] }],
   ["halo theme", { fileNames: ["halo theme.mp3"], volume: 0.4 }],
