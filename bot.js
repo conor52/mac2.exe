@@ -8,24 +8,27 @@ const client = new Client({
   ws: { intents: Intents.All },
   partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
 });
+let macIntro = true;
 
 client.on('voiceStateUpdate', async (state, state2) => {
   // Plays audio of tony Tony Hologram for mac
-  if (state2.member.id === '270185954789031936') {
-    if (state.selfMute === false && state2.selfMute == false) {
-      if (state.mute === false && state2.mute == false) {
-        if (state.deaf === false && state2.deaf == false) {
-          if (state.streaming === false && state2.streaming == false) {
-            if (state.selfVideo === false && state2.selfVideo == false) {
-              await state2.channel
-                .join()
-                .then(connection => {
-                  const dispatcher = connection.play('porn.mp3', { volume: 0.3 }, { highWaterMark: 50 });
-                  dispatcher.on('finish', () => connection.disconnect());
-                })
-                .catch(e => {
-                  console.error(e);
-                });
+  if (state2.member.id === '140845637636718595') {
+    if (macIntro === true) {
+      if (state.selfMute === false && state2.selfMute == false) {
+        if (state.mute === false && state2.mute == false) {
+          if (state.deaf === false && state2.deaf == false) {
+            if (state.streaming === false && state2.streaming == false) {
+              if (state.selfVideo === false && state2.selfVideo == false) {
+                await state2.channel
+                  .join()
+                  .then(connection => {
+                    const dispatcher = connection.play('porn.mp3', { volume: 0.3 }, { highWaterMark: 50 });
+                    dispatcher.on('finish', () => connection.disconnect());
+                  })
+                  .catch(e => {
+                    console.error(e);
+                  });
+              }
             }
           }
         }
