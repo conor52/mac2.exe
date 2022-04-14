@@ -83,7 +83,7 @@ const memes = new Map([
   ['halo theme', { fileNames: ['halo theme.mp3'], volume: 0.4 }],
   ['harry', { fileNames: ['harry1.mp3', 'harry2.mp3'] }],
   ['heffo', { fileNames: ['heffo.mp3'] }],
-  ['horseplay', { fileNames: ['horseplay.mp3'] }],
+  ['horseplay', { fileNames: ['horseplay.mp3'], volume: 0.9  }],
   ['im taking a shit', { fileNames: ['please_get_out_im_taking_a_shit_-606515860420089524.mp3'] }],
   ['joey', { fileNames: ['joey.mp3'] }],
   ['divorce', { fileNames: ['John-I-want-Divorce.mp3'] }],
