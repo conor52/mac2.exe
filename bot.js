@@ -1,9 +1,9 @@
 require('dotenv').config();
 const Discord = require('discord.js');
+
 const fs = require('fs');
 const { OpusEncoder } = require('@discordjs/opus');
 const { Client, Intents } = require('discord.js');
-
 const client = new Client({
   ws: { intents: Intents.All },
   partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
@@ -12,6 +12,7 @@ const client = new Client({
 client.once('ready', () => {
   console.log('Ready!');
 });
+
 
 let macIntro = true;
 
@@ -27,7 +28,7 @@ client.on('voiceStateUpdate', async (state, state2) => {
                 await state2.channel
                   .join()
                   .then(connection => {
-                    const dispatcher = connection.play('tony.mp3', { volume: 0.3 }, { highWaterMark: 50 });
+                    const dispatcher = connection.play('carlton.mp3', { volume: 0.3 }, { highWaterMark: 50 });
                     dispatcher.on('finish', () => connection.disconnect());
                   })
                   .catch(e => {
@@ -41,106 +42,6 @@ client.on('voiceStateUpdate', async (state, state2) => {
     }
   }
 });
-
-const memes = new Map([
-  ['anime', { fileNames: ['anime.mp3'] }],
-  ['ara ara', { fileNames: ['ara ara.mp3'] }],
-  ['arkbar', { fileNames: ['arkbar.mp3'] }],
-  ['asnee', { fileNames: ['asnee.mp3'] }],
-  ['autism', { fileNames: ['autism.mp4'] }],
-  ['bear patrol', { fileNames: ['bear patrol.mp3'] }],
-  ['bender', { fileNames: ['bender.mp3'] }],
-  ['bigshaq', { fileNames: ['bigshaq.mp3'] }],
-  ['bono', { fileNames: ['bono.mp3'] }],
-  ['borat', { fileNames: ['borat.mp3'] }],
-  ['buklau', { fileNames: ['buklau.mp3', 'buklau2.mp3', 'buklau3.mp3'] }],
-  ['breyers', { fileNames: ['byriers.mp3'] }],
-  ['call to prayer', { fileNames: ['call to prayer.mp3'], volume: 0.2 }],
-  ['carlton', { fileNames: ['carlton.mp3'] }],
-  ['cat jam', { fileNames: ['cat jam original.mp3'] }],
-  ['chum drum', { fileNames: ['chum_drum_bedrum_-4353029994025334169.mp3'] }],
-  ['coke', { fileNames: ['coke.mp3'] }],
-  ['cold snap', { fileNames: ['cold snap.mp3'] }],
-  ['crab rave', { fileNames: ['crab_rave_sound_effect_84840729185338176.mp3'] }],
-  ['croissant', { fileNames: ['carl_wheezer_croissant_2900525901889400232.mp3'] }],
-  ['dinkster', { fileNames: ['somebody_ring_the_dinkster_-2919279323241905165.mp3'] }],
-  ['divorce cute', { fileNames: ['divorce-cute.mp3'] }],
-  ['divorce short', { fileNames: ['divroce-short.mp3'] }],
-  ['donkey', { fileNames: ['donkey.mp3'] }],
-  ['dortycorry', { fileNames: ['dortycorry1.mp3', 'dortycorry2.mp3'] }],
-  ['ed scream', { fileNames: ['Edscream.mp3'] }],
-  ['egg', { fileNames: ['egg.mp3'] }],
-  ['eyboss', { fileNames: ['eyboss.mp3'] }],
-  ['foksmash', { fileNames: ['foksmash.mp3'] }],
-  ['getaknife', { fileNames: ['getaknife.mp3'] }],
-  [
-    'news',
-    {
-      fileNames: ['government-sponsors.mp3', 'dublin-airport.mp3', 'public-stonings.mp3', 'rebel-stronghold.mp3'],
-    },
-  ],
-  ['hal', { fileNames: ['hal.mp3'] }],
-  ['halo theme', { fileNames: ['halo theme.mp3'], volume: 0.4 }],
-  ['harry', { fileNames: ['harry1.mp3', 'harry2.mp3'] }],
-  ['heffo', { fileNames: ['heffo.mp3'] }],
-  ['horseplay', { fileNames: ['horseplay.mp3'] }],
-  ['im taking a shit', { fileNames: ['please_get_out_im_taking_a_shit_-606515860420089524.mp3'] }],
-  ['joey', { fileNames: ['joey.mp3'] }],
-  ['divorce', { fileNames: ['John-I-want-Divorce.mp3'] }],
-  ['knifey', { fileNames: ['knifey.mp3'] }],
-  ['knuckes', { fileNames: ['knuckles1.mp3', 'knuckles2.mp3'] }],
-  ['lads', { fileNames: ['LADS.mp3'] }],
-  ['ladsfull', { fileNames: ['ladsfull.mp3'] }],
-  ['legs', { fileNames: ['legs (1).mp3'] }],
-  ['lesson', { fileNames: ['lesson.mp3'] }],
-  ['lie detector', { fileNames: ['lie detector.mp3'] }],
-  ['lovely', { fileNames: ['lovely.mp3', 'lovely2.mp3'] }],
-  ['mac shut up', { fileNames: ['mac shut up.mp3'], volume: 1.8 }],
-  ['menu', { fileNames: ['menu1.mp3, menu2.mp3, menu3.mp3'] }],
-  ['miranda', { fileNames: ['miranda.mp3'] }],
-  ['mr freeze', { fileNames: ['mr freeze.mp3', 'mrfreeze.mp3'] }],
-  ['muck', { fileNames: ['muck.mp3'] }],
-  ['neck', { fileNames: ['neck.mp3'], volume: 0.4 }],
-  ['nice', { fileNames: ['nice.mp3'] }],
-  ['pats', { fileNames: ['pats1.mp3', 'pats2.mp3', 'pats3.mp3'] }],
-  ['pen', { fileNames: ['pen.mp3'] }],
-  ['penis', { fileNames: ['penis.mp3'], volume: 0.9 }],
-  ['pissing', { fileNames: ['pissing.mp3'] }],
-  ['please', { fileNames: ['please.mp3'] }],
-  ['poopy', { fileNames: ['poopy.mp3'] }],
-  ['popcoin', { fileNames: ['popcoin.mp3'] }],
-  ['porn', { fileNames: ['porn.mp3'] }],
-  ['potions', { fileNames: ['potions.mp3'] }],
-  ['prettygood', { fileNames: ['prettygood.mp3'] }],
-  ['pro cycling manager', { fileNames: ['pro cycling manager.mp3'], volume: 0.4 }],
-  ['putin', { fileNames: ['putin.mp3'] }],
-  ['quickmafs', { fileNames: ['quickmafs.mp3'] }],
-  ['renekton', { fileNames: ['renekton.mp3'] }],
-  ['sassy', { fileNames: ['sassy1.mp3'] }],
-  ['say again', { fileNames: ['say-again.mp3'] }],
-  ['shit', { fileNames: ['shit.mp3'] }],
-  ['smellz', { fileNames: ['smellz1.mp3', 'smellz2.mp3', 'smellz3.mp3'] }],
-  ['somebody', { fileNames: ['somebody.mp3'] }],
-  ['starving', { fileNames: ['starving (1).mp3'] }],
-  ['stinging roger', { fileNames: ['stinging roger.mp3'] }],
-  ['street', { fileNames: ['street.mp3'] }],
-  ['strong potions', { fileNames: ['strong-potions.mp3'] }],
-  ['sus', { fileNames: ['sus.mp3'] }],
-  ['the sun priest', { fileNames: ['TheSunPriest.mp3'] }],
-  ['viper', { fileNames: ['TheViper.mp3', 'Theviper2.mp3', 'Theviper3.mp3'] }],
-  ['tony', { fileNames: ['tony.mp3'] }],
-  [
-    'trump',
-    {
-      fileNames: ['trump1.mp3', 'trump2.mp3', 'trump3.mp3', 'trump4.mp3', 'trump5.mp3'],
-    },
-  ],
-  ['uncanny', { fileNames: ['uncanny.mp3', 'uncanny2.mp3'] }],
-  ['uncle roger', { fileNames: ['uncle roger.mp3'] }],
-  ['wam', { fileNames: ['Dedotated Wam - MLG Sound Effect (HD).mp3'] }],
-  ['weans', { fileNames: ['weans.mp3'] }],
-  ['yokes', { fileNames: ['yokes.mp3'] }],
-]);
 
 client.on('messageReactionAdd', async (reaction, user) => {
   // When a reaction is received, check if the structure is partial
@@ -158,34 +59,844 @@ client.on('messageReactionAdd', async (reaction, user) => {
       reaction.message.channel.send('Good man yourself, keep downvoting Mark');
     } else {
     }
+
+    
   }
 });
 
 client.on('message', async msg => {
-  if (memes.has(msg.content)) {
-    const meme = memes.get(msg.content);
-    if (meme && meme.fileNames && meme.fileNames.length > 0) {
-      let random = meme.fileNames.length === 1 ? 0 : Math.floor(Math.random() * meme.fileNames.length);
-      if (!msg.member.voice.channel) {
-        msg.channel.send('Go into a channel to hear this meme.');
-      } else {
-        await msg.member.voice.channel
-          .join()
-          .then(connection => {
-            const dispatcher = connection.play(
-              `audio folder1/${meme.fileNames[random]}`,
-              { volume: meme.volume ? meme.volume : 0.6 },
-              { highWaterMark: 50 }
-            );
-            dispatcher.on('finish', () => connection.disconnect());
-          })
-          .catch(e => {
-            console.error(e);
-          });
-      }
+  // all triggered by certain message conditions, and sometimes requiring a specific user to use it, such as mac turning off his intro play.
+  if (msg.content === 'news') {
+    // Put your message condition inside this string
+    const newsArray = ['audio folder/dublin-airport.mp3', 'audio folder/government-sponsors.mp3', 'audio folder/public-stonings.mp3', 'audio folder/rebel-stronghold.mp3']; // put your audio file(s) in here. if its just one then that will be picked always, if its multiple then its picked at random. Try to use mp3 or mp4 files.
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.3 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
     }
   }
+
+  // Copy and paste the below code from line 8 to 104 to create your own voice command!
+
+  if (msg.content === '') {
+    const newsArray = [''];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'menu') {
+    let file;
+    const random = Math.ceil(Math.random()*100);
+    if (random === 100) {
+      file = 'audio folder/menu3.mp3';
+    } else if (random >= 90) {
+      file = 'audio folder/menu2.mp3';
+    } else {
+      file = 'audio folder/menu1.mp3';
+    }
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(file, { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'breyers') {
+    const newsArray = ['audio folder/byriers.mp4'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'asnee') {
+    const newsArray = ['audio folder/asnee.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'big shaq') {
+    const newsArray = ['audio folder/bigshaq.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'starving') {
+    const newsArray = ['audio folder/starving (1).mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+  1;
+
+  if (msg.content === 'legs') {
+    const newsArray = ['audio folder/legs (1).mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'borat') {
+    const newsArray = ['audio folder/borat.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'divorce') {
+    const newsArray = ['audio folder/divorce-short.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'sassy') {
+    const newsArray = ['audio folder/sassy1.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'donkey') {
+    const newsArray = ['audio folder/donkey.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'ey boss') {
+    const newsArray = ['audio folder/eyboss.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'pretty good') {
+    const newsArray = ['audio folder/prettygood.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'lesson') {
+    const newsArray = ['audio folder/lesson.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'nice') {
+    const newsArray = ['audio folder/nice.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'smellz') {
+    const newsArray = ['audio folder/smellz1.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'weans') {
+    const newsArray = ['audio folder/weans.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'bono') {
+    const newsArray = ['audio folder/bono.mp4'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'steak') {
+    const newsArray = ['audio folder/steak.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'mr freeze') {
+    const newsArray = ['audio folder/mrfreeze.mp4'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'street') {
+    const newsArray = ['audio folder/street.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'smellz long') {
+    const newsArray = ['audio folder/smellz2.mp3', 'audio folder/smellz3.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'carlton') {
+    const newsArray = ['audio folder/carlton.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'edd scream') {
+    const newsArray = ['audio folder/Edscream.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'get a knife') {
+    const newsArray = ['audio folder/getanknife.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'joey') {
+    const newsArray = ['audio folder/joey.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'penis') {
+    const newsArray = ['audio folder/penis.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.9 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'please') {
+    const newsArray = ['audio folder/please.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'quick maths') {
+    const newsArray = ['audio folder/quickmafs.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'sun priest') {
+    const newsArray = ['audio folder/TheSunPriest.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        })
+    }
+  }
+
+  if (msg.content === 'viper') {
+    const newsArray = ['audio folder/theviper2.mp3', 'audio folder/theviper3.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'viper long') {
+    const newsArray = ['audio folder/TheViper.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'cold snap') {
+    const newsArray = ['audio folder/cold snap.mp4'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'lads') {
+    const newsArray = ['audio folder/LADS.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'lads long') {
+    const newsArray = ['audio folder/ladsfull.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'egg') {
+    const newsArray = ['audio folder/egg.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'heffo') {
+    const newsArray = ['audio folder/heffo.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'say again?') {
+    const newsArray = ['audio folder/say-again.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'catjam') {
+    const newsArray = ['audio folder/cat jam original.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
   
+
+  if (msg.content === 'potion seller') {
+    const newsArray = ['audio folder/strong-potion.mp4', 'audio folder/potions.mp4'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'dorty curry') {
+    const newsArray = ['audio folder/dortycorry1.mp3', 'audio folder/dortycorry2.mp3'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'autism') {
+    const newsArray = ['audio folder/autism.mp4'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'poopy') {
+    const newsArray = ['audio folder/poopy.mp4'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+
+  if (msg.content === 'miranda') {
+    const newsArray = ['audio folder/miranda.mp4'];
+    let random = Math.floor(Math.random() * newsArray.length);
+    if (!msg.member.voice.channel) {
+      msg.channel.send('Go into a channel to hear this meme.');
+    } else {
+      await msg.member.voice.channel
+        .join()
+        .then(connection => {
+          const dispatcher = connection.play(newsArray[random], { volume: 0.6 }, { highWaterMark: 50 });
+          dispatcher.on('finish', () => connection.disconnect());
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
+  }
+  if (msg.content === 'mac is sound') {
+    // kicks member who types this string, if they're in a voice channel. Otherwise if statement doesnt get triggered.
+    if (msg.member.voice.channel) {
+      msg.member.voice.kick();
+      msg.channel.send(`${msg.member.displayName} was kicked for saying something nice about mac.`);
+    } else {
+      msg.channel.send(`${msg.member.nickname} was kicked for saying something nice about mac.`);
+    }
+  }
 });
 
 client.on('message', async msg => {
@@ -235,26 +946,6 @@ client.on('message', async msg => {
       msg.channel.send(`${msg.member.nickname} has their intro turned off.`);
     }
   }
-
-  if (msg.content === 'start intro' && msg.member.id === '140845637636718595') {
-    // changes boolean which is required to play intro music, also sends a message with their username.
-    macIntro = true;
-    if (msg.member.nickname === null) {
-      msg.channel.send(`${msg.member.displayName} has turned their intro on..`);
-    } else {
-      msg.channel.send(`${msg.member.nickname} has their intro on..`);
-    }
-  }
-
-  if (msg.content === 'stop intro' && msg.member.id === '140845637636718595') {
-    macIntro = false;
-    if (msg.member.nickname === null) {
-      msg.channel.send(`${msg.member.displayName} has their intro turned off.`);
-    } else {
-      msg.channel.send(`${msg.member.nickname} has their intro turned off.`);
-    }
-  }
-
 
   if (msg.content === 'is bray a shithole') {
     msg.channel.send('yes, bray is shit.');
