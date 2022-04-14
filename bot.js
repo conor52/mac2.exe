@@ -44,7 +44,7 @@ client.on('voiceStateUpdate', async (state, state2) => {
 
 const memes = new Map([
   ['anime', { fileNames: ['anime.mp3'] }],
-  ['ara ara', { fileNames: ['ara ara.mp3'] }],
+  ['ara ara', { fileNames: ['ara ara.mp3'], volume: 0.9 }],
   ['arkbar', { fileNames: ['arkbar.mp3'] }],
   ['asnee', { fileNames: ['asnee.mp3'] }],
   ['autism', { fileNames: ['autism.mp4'] }],
