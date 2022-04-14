@@ -8,6 +8,11 @@ const client = new Client({
   ws: { intents: Intents.All },
   partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
 });
+
+client.once('ready', () => {
+  console.log('Ready!');
+});
+
 let macIntro = true;
 
 client.on('voiceStateUpdate', async (state, state2) => {
@@ -22,7 +27,7 @@ client.on('voiceStateUpdate', async (state, state2) => {
                 await state2.channel
                   .join()
                   .then(connection => {
-                    const dispatcher = connection.play('carlton.mp3', { volume: 0.6 }, { highWaterMark: 50 });
+                    const dispatcher = connection.play('tony.mp3', { volume: 0.3 }, { highWaterMark: 50 });
                     dispatcher.on('finish', () => connection.disconnect());
                   })
                   .catch(e => {
@@ -180,6 +185,7 @@ client.on('message', async msg => {
       }
     }
   }
+  
 });
 
 client.on('message', async msg => {
@@ -229,6 +235,26 @@ client.on('message', async msg => {
       msg.channel.send(`${msg.member.nickname} has their intro turned off.`);
     }
   }
+
+  if (msg.content === 'start intro' && msg.member.id === '140845637636718595') {
+    // changes boolean which is required to play intro music, also sends a message with their username.
+    macIntro = true;
+    if (msg.member.nickname === null) {
+      msg.channel.send(`${msg.member.displayName} has turned their intro on..`);
+    } else {
+      msg.channel.send(`${msg.member.nickname} has their intro on..`);
+    }
+  }
+
+  if (msg.content === 'stop intro' && msg.member.id === '140845637636718595') {
+    macIntro = false;
+    if (msg.member.nickname === null) {
+      msg.channel.send(`${msg.member.displayName} has their intro turned off.`);
+    } else {
+      msg.channel.send(`${msg.member.nickname} has their intro turned off.`);
+    }
+  }
+
 
   if (msg.content === 'is bray a shithole') {
     msg.channel.send('yes, bray is shit.');
