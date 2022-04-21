@@ -17,7 +17,7 @@ let macIntro = true;
 
 client.on('voiceStateUpdate', async (state, state2) => {
   // Plays audio of tony Tony Hologram for mac
-  if (state2.member.id === '140845637636718595') {
+  if (state2.member.id === '295912051984039936') {
     if (macIntro === true) {
       if (state.selfMute === false && state2.selfMute == false) {
         if (state.mute === false && state2.mute == false) {
@@ -27,7 +27,7 @@ client.on('voiceStateUpdate', async (state, state2) => {
                 await state2.channel
                   .join()
                   .then(connection => {
-                    const dispatcher = connection.play('audio folder1/porn.mp3', { volume: 0.3 }, { highWaterMark: 50 });
+                    const dispatcher = connection.play('audio folder1/porn.mp3', { volume: 0.5 }, { highWaterMark: 50 });
                     dispatcher.on('finish', () => connection.disconnect());
                   })
                   .catch(e => {
