@@ -27,7 +27,7 @@ client.on('voiceStateUpdate', async (state, state2) => {
                 await state2.channel
                   .join()
                   .then(connection => {
-                    const dispatcher = connection.play('audio folder1/porn.mp3', { volume: 0.3 }, { highWaterMark: 50 });
+                    const dispatcher = connection.play('porn.mp3', { volume: 0.3 }, { highWaterMark: 50 });
                     dispatcher.on('finish', () => connection.disconnect());
                   })
                   .catch(e => {
