@@ -49,7 +49,7 @@ const memes = new Map([
   ['airpods', { fileNames: ['airpods.mp3'], volume: 0.9 }],
   ['arkbar', { fileNames: ['arkbar.mp3'] }],
   ['asnee', { fileNames: ['asnee.mp3'] }],
-  ['asianpeople', { fileNames: ['asian people.mp3'], volume: 0.9 }],
+  ['asian people', { fileNames: ['asian people.mp3'], volume: 0.9 }],
   ['autism', { fileNames: ['autism.mp4'] }],
   ['bear patrol', { fileNames: ['bear patrol.mp3'] }],
   ['bender', { fileNames: ['bender.mp3'] }],
